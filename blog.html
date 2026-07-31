@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Blog — Zepòl</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Configuration Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#FF4D26',
+                            darkBlue: '#0A1128',
+                            lightBg: '#F4F5F6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Liaison au fichier CSS global -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-lightBg text-slate-900 antialiased pt-20 relative">
+
+    <!-- LOADER DE CHARGEMENT -->
+    <div id="loader" class="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative flex items-center justify-center">
+            <!-- Spinner animé -->
+            <div class="w-16 h-16 border-4 border-brand-orange/20 border-t-brand-orange rounded-full animate-spin"></div>
+            <!-- Logo ou initiales au centre -->
+            <img src="assets/images/logo1-zepol.png" alt="Zepòl" class="h-6 w-auto absolute object-contain">
+        </div>
+        <span class="mt-4 text-xs font-mono font-bold tracking-widest text-brand-darkBlue uppercase">Chargement en cours...</span>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 bg-white border-b border-slate-100 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="assets/images/logo1-zepol.png" alt="Logo Zepòl" class="h-16 w-auto object-contain">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-brand-orange transition">Accueil</a>
+                <a href="about.html" class="hover:text-brand-orange transition">Qui sommes-nous?</a>
+                <a href="histoire.html" class="hover:text-brand-orange transition">Notre Histoire</a>
+                <a href="projets.html" class="hover:text-brand-orange transition">Projets</a>
+                <a href="blog.html" class="text-brand-orange font-bold">Blog</a>
+                <button onclick="openContactModal()" class="hover:text-brand-orange transition cursor-pointer">Contact</button>
+            </nav>
+            <a href="index.html#donner" class="bg-brand-orange text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-opacity-90 transition">Faire un don</a>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="max-w-4xl mx-auto px-6 py-20 space-y-16">
+        <div class="space-y-4">
+            <span class="text-xs font-bold tracking-widest text-brand-orange uppercase font-mono">// Réflexions & Engagements</span>
+            <h1 class="text-5xl md:text-7xl tracking-tight uppercase font-title text-brand-darkBlue">Le Blog Actu<span class="text-brand-orange">.</span></h1>
+        </div>
+        
+        <!-- Flux d'articles -->
+        <div class="space-y-12">
+            
+            <!-- ARTICLE 1 : PARIS SPORTIFS -->
+            <article id="article-1" class="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm p-6 md:p-8 space-y-6 transition-all duration-300">
+                <div class="h-64 md:h-96 w-full bg-cover bg-center rounded-xl" style="background-image: url('assets/images/article-pari.jpg');"></div>
+                
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-brand-orange uppercase font-mono">// Société & Jeunesse</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-darkBlue leading-tight font-title" style="font-weight: 700;">
+                        Les paris sportifs, un fléau qui gangrène la jeunesse haïtienne face à laquelle il faut agir tout de suite
+                    </h2>
+                    <div class="text-xs text-slate-400 font-mono flex space-x-4 pt-1">
+                        <span>Par Riguerson ALEXANDRE</span>
+                        <span>•</span>
+                        <span>12.07.2026</span>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Depuis quelques années, une ombre grandissante plane sur les rues et les esprits de notre jeunesse en Haïti : l'explosion incontrôlée des bureaux et applications de paris sportifs. Ce qui est présenté comme un simple divertissement cache en réalité un engrenage économique et psychologique destructeur pour les familles les plus vulnérables.
+                </p>
+
+                <!-- Reste du texte (masqué par défaut) -->
+                <div id="full-text-1" class="hidden space-y-4 pt-4 border-t border-slate-100 text-slate-600 leading-relaxed">
+                    <p>
+                        Dans un contexte économique difficile où les opportunités d'emploi sont rares, de nombreux jeunes voient à tort dans les jeux de hasard une porte de sortie rapide vers l'autonomie financière. Les économies de scolarité, l'argent des repas ou les maigres revenus familiaux y sont quotidiennement engloutis.
+                    </p>
+                    <p class="font-semibold text-brand-darkBlue pt-2">L'addiction invisible et ses ravages</p>
+                    <p>
+                        Au-delà des pertes financières nettes, c'est toute une génération qui souffre de détresse psychologique. Décrochage scolaire précoce, isolement social et hausse de la petite délinquance sont les conséquences directes observées sur le terrain par nos équipes de mentorat. L'illusion du gain rapide détruit la valeur de l'effort et de l'apprentissage.
+                    </p>
+                    <p class="font-semibold text-brand-darkBlue pt-2">L'appel à l'action de Zepòl</p>
+                    <p>
+                        Face à cette urgence nationale, Zepòl appelle les autorités publiques à une régulation stricte des plateformes numériques et à l'interdiction des bureaux de jeux à proximité des établissements scolaires. Nous demandons également le déploiement immédiat de campagnes de prévention pour protéger notre capital le plus précieux : notre jeunesse.
+                    </p>
+
+                    <!-- Section LIRE AUSSI -->
+                    <div class="pt-12 mt-12 border-t border-slate-200/60 space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Lire aussi...</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="navigateToArticle(2)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-deforestation.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Environnement</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Subventionner le propane...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(3)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-orientationpro.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Éducation</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Orientation en terminale...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(4)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-videjuridique.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Droits Humains</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Invisibilité juridique...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'action -->
+                <button onclick="toggleArticle(1)" id="btn-1" class="inline-flex items-center space-x-2 text-sm font-bold text-brand-orange border border-brand-orange/20 bg-brand-orange/5 px-5 py-2.5 rounded-xl hover:bg-brand-orange hover:text-white transition duration-200">
+                    <span>Lire la suite</span> <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+            </article>
+
+
+            <!-- ARTICLE 2 : ENVIRONNEMENT -->
+            <article id="article-2" class="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm p-6 md:p-8 space-y-6 transition-all duration-300">
+                <div class="h-64 md:h-96 w-full bg-cover bg-center rounded-xl" style="background-image: url('assets/images/article-deforestation.jpg');"></div>
+                
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-brand-orange uppercase font-mono">// Environnement & Énergie</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-darkBlue leading-tight font-title" style="font-weight: 700;">
+                        Pourquoi l’état devrait subventionner le propane pour contrer le déboisement massif des arbres
+                    </h2>
+                    <div class="text-xs text-slate-400 font-mono flex space-x-4 pt-1">
+                        <span>Par Daël MERSIER</span>
+                        <span>•</span>
+                        <span>02.06.2026</span>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    La couverture forestière d'Haïti est en état d'urgence absolue, estimée aujourd'hui à un niveau critique de moins de 2% du territoire national. La cause principale de ce désastre écologique est bien connue : la dépendance structurelle au charbon de bois pour la cuisson domestique quotidienne.
+                </p>
+
+                <!-- Reste du texte (masqué par défaut) -->
+                <div id="full-text-2" class="hidden space-y-4 pt-4 border-t border-slate-100 text-slate-600 leading-relaxed">
+                    <p>
+                        Pour la grande majorité des familles haïtiennes, le charbon de bois reste la seule source d'énergie accessible et abordable au quotidien. Face à l'extrême pauvreté, la coupe d'arbres est devenue une économie de subsistance incontournable. Pourtant, le gaz propane représente une alternative écologique immédiate, freinée principalement par son coût d'acquisition initial élevé.
+                    </p>
+                    <p class="font-semibold text-brand-darkBlue pt-2">Le coût environnemental de l'inaction</p>
+                    <p>
+                        Chaque arbre abattu accélère l'érosion des sols fertiles et transforme les pluies saisonnières en inondations dévastatrices et meurtrières, comme on le constate régulièrement dans la région de l'Artibonite. Subventionner massivement le gaz de cuisson ne serait pas une perte budgétaire, mais un choix politique hautement stratégique pour casser définitivement la rentabilité de la déforestation.
+                    </p>
+                    <p>
+                        Zepòl soutient qu'associer cette transition énergétique à des programmes scolaires d'éco-citoyenneté permettrait à terme de sanctuariser nos montagnes tout en allégeant durablement le pouvoir d'achat des foyers.
+                    </p>
+
+                    <!-- Section LIRE AUSSI -->
+                    <div class="pt-12 mt-12 border-t border-slate-200/60 space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Lire aussi...</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="navigateToArticle(1)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-pari.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Société</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Les paris sportifs, un fléau...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(3)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-orientationpro.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Éducation</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Orientation en terminale...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(4)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-videjuridique.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Droits Humains</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Invisibilité juridique...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'action -->
+                <button onclick="toggleArticle(2)" id="btn-2" class="inline-flex items-center space-x-2 text-sm font-bold text-brand-orange border border-brand-orange/20 bg-brand-orange/5 px-5 py-2.5 rounded-xl hover:bg-brand-orange hover:text-white transition duration-200">
+                    <span>Lire la suite</span> <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+            </article>
+
+
+            <!-- ARTICLE 3 : ÉDUCATION / ORIENTATION -->
+            <article id="article-3" class="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm p-6 md:p-8 space-y-6 transition-all duration-300">
+                <div class="h-64 md:h-96 w-full bg-cover bg-center rounded-xl" style="background-image: url('assets/images/article-orientationpro.jpg');"></div>
+                
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-brand-orange uppercase font-mono">// Éducation & Mentorat</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-darkBlue leading-tight font-title" style="font-weight: 700;">
+                        Au-delà des bancs d’école : redéfinir l’orientation professionnelle pour la terminale en Haïti
+                    </h2>
+                    <div class="text-xs text-slate-400 font-mono flex space-x-4 pt-1">
+                        <span>Par Émeline JEAN-BAPTISTE</span>
+                        <span>•</span>
+                        <span>19.07.2026</span>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Chaque année, des milliers d’élèves haïtiens obtiennent leur baccalauréat sans aucune idée précise des débouchés universitaires ou des réalités du marché de l'emploi. Dans un système éducatif historiquement axé sur l'apprentissage théorique et abstrait, l'absence d'orientation condamne notre jeunesse à naviguer à vue.
+                </p>
+
+                <!-- Reste du texte (masqué par défaut) -->
+                <div id="full-text-3" class="hidden space-y-4 pt-4 border-t border-slate-100 text-slate-600 leading-relaxed">
+                    <p>
+                        Le manque structurel de passerelles entre les exigences de l'économie réelle et les aspirations des lycéens crée une saturation massive des filières universitaires traditionnelles (droit, médecine, gestion). Ce phénomène se produit malheureusement au détriment de secteurs porteurs et indispensables à la reconstruction du pays, tels que l'agronomie moderne, les technologies du numérique ou les énergies renouvelables.
+                    </p>
+                    <p class="font-semibold text-brand-darkBlue pt-2">Le programme ProPulse : une réponse pragmatique</p>
+                    <p>
+                        C'est précisément pour combler ce vide que l'association Zepòl déploie sur le terrain son programme d'orientation innovant baptisé "Explor'Avenir ou ProPulse". Notre démarche consiste à offrir des bilans d'orientation personnalisés, des ateliers pratiques de découverte des métiers de demain et des rencontres directes avec des professionnels inspirants.
+                    </p>
+                    <p>
+                        Donner des outils d'analyse critique et une vision claire du marché aux bacheliers dès la classe de terminale, c'est leur permettre de choisir consciemment leur destin plutôt que de subir le chômage ou l'exode forcé.
+                    </p>
+
+                    <!-- Section LIRE AUSSI -->
+                    <div class="pt-12 mt-12 border-t border-slate-200/60 space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Lire aussi...</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="navigateToArticle(1)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-pari.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Société</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Les paris sportifs, un fléau...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(2)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-deforestation.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Environnement</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Subventionner le propane...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(4)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-videjuridique.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Droits Humains</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Invisibilité juridique...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'action -->
+                <button onclick="toggleArticle(3)" id="btn-3" class="inline-flex items-center space-x-2 text-sm font-bold text-brand-orange border border-brand-orange/20 bg-brand-orange/5 px-5 py-2.5 rounded-xl hover:bg-brand-orange hover:text-white transition duration-200">
+                    <span>Lire la suite</span> <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+            </article>
+
+
+            <!-- ARTICLE 4 : DROITS HUMAINS / ETAT CIVIL -->
+            <article id="article-4" class="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm p-6 md:p-8 space-y-6 transition-all duration-300">
+                <div class="h-64 md:h-96 w-full bg-cover bg-center rounded-xl" style="background-image: url('assets/images/article-videjuridique.jpg');"></div>
+                
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-brand-orange uppercase font-mono">// Droits Humains & Justice</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-darkBlue leading-tight font-title" style="font-weight: 700;">
+                        Les enfants sans extraits de naissance : briser le cycle de l'invisibilité juridique en Haïti
+                    </h2>
+                    <div class="text-xs text-slate-400 font-mono flex space-x-4 pt-1">
+                        <span>Par Wood-Jerry JEAN</span>
+                        <span>•</span>
+                        <span>15.07.2026</span>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    L'acte de naissance constitue le premier rempart fondamental de la protection d'un individu. Pourtant, dans les sections communales isolées et les zones urbaines précarisées d'Haïti, un nombre alarmant d'enfants grandissent sans existence légale aux yeux de la loi, privés de leur droit inaliénable à l'identité.
+                </p>
+
+                <!-- Reste du texte (masqué par défaut) -->
+                <div id="full-text-4" class="hidden space-y-4 pt-4 border-t border-slate-100 text-slate-600 leading-relaxed">
+                    <p>
+                        L’absence d’enregistrement systématique auprès des bureaux de l'état civil dresse des obstacles insurmontables tout au long de la vie d'un citoyen. Sans cette reconnaissance juridique élémentaire, un adolescent ne peut pas valider son inscription aux examens d'État officiels, obtenir des diplômes, ni prétendre à une Carte d'Identification Nationale (CIN) ou ouvrir un compte en banque légitime à sa majorité.
+                    </p>
+                    <p class="font-semibold text-brand-darkBlue pt-2">Une porte ouverte à toutes les formes d'abus</p>
+                    <p>
+                        Cette situation d'invisibilité totale expose directement les mineurs aux pires vulnérabilités : réseaux de traite humaine, exploitation économique violente (phénomène des enfants en domesticité abusive dits "Restavèk") ou mariages précoces forcés. Sans existence officielle, la justice ne dispose d'aucun levier pour recenser ces victimes et les protéger efficacement.
+                    </p>
+                    <p>
+                        À travers des ateliers de sensibilisation de proximité et l'appui logistique à des cliniques juridiques mobiles, Zepòl s'engage activement pour faciliter l'obtention d'actes d'état civil tardifs et restituer à ces enfants oubliés leur statut de citoyens à part entière.
+                    </p>
+
+                    <!-- Section LIRE AUSSI -->
+                    <div class="pt-12 mt-12 border-t border-slate-200/60 space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Lire aussi...</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div onclick="navigateToArticle(1)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-pari.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Société</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Les paris sportifs, un fléau...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(2)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-deforestation.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Environnement</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Subventionner le propane...</p>
+                                </div>
+                            </div>
+                            <div onclick="navigateToArticle(3)" class="bg-brand-lightBg p-4 rounded-xl border border-slate-200/60 cursor-pointer hover:border-brand-orange transition flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cover bg-center rounded-lg flex-shrink-0" style="background-image: url('assets/images/article-orientationpro.jpg');"></div>
+                                <div class="flex-1 min-w-0">
+                                    <h5 class="text-[10px] font-bold text-slate-400 uppercase font-mono">Éducation</h5>
+                                    <p class="text-xs font-bold text-brand-darkBlue truncate">Orientation en terminale...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'action -->
+                <button onclick="toggleArticle(4)" id="btn-4" class="inline-flex items-center space-x-2 text-sm font-bold text-brand-orange border border-brand-orange/20 bg-brand-orange/5 px-5 py-2.5 rounded-xl hover:bg-brand-orange hover:text-white transition duration-200">
+                    <span>Lire la suite</span> <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+            </article>
+
+        </div>
+    </main>
+
+   <!-- FOOTER -->
+    <footer class="bg-brand-darkBlue border-t border-white/5 text-white/50 py-16 text-sm">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <!-- Branding & Réseaux sociaux -->
+                <div class="md:col-span-4 space-y-6">
+                    <a href="index.html" class="inline-block">
+                        <img src="assets/images/logo2-zepol.png" alt="Logo Zepòl" class="h-16 w-auto object-contain">
+                    </a>
+                    <p class="text-slate-400 max-w-sm leading-relaxed text-xs">Ensemble pour un avenir juste et solidaire en Haïti.</p>
+                    
+                    <!-- SUIVEZ-NOUS -->
+                    <div class="space-y-3 pt-2">
+                        <span class="text-xs uppercase font-bold text-white tracking-wider block">Suivez-nous</span>
+                        <div class="flex items-center space-x-3">
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/zepolayiti?igsh=MWJkc2Eza2hsMnZjMA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300" aria-label="Instagram">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/share/1S5zTDF4Nx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300" aria-label="Facebook">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/company/zepolayiti/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300" aria-label="LinkedIn">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="md:col-span-2 space-y-3">
+                    <span class="text-xs uppercase font-bold text-white tracking-wider">Menu</span>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="about.html" class="hover:text-white transition">Qui sommes-nous?</a></li>
+                        <li><a href="histoire.html" class="hover:text-white transition">Notre Histoire</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                        <li><button onclick="openContactModal()" class="hover:text-white transition cursor-pointer">Contact</button></li>
+                    </ul>
+                </div>
+
+                <!-- COORDONNEES DE CONTACT -->
+                <div class="md:col-span-3 space-y-3">
+                    <span class="text-xs uppercase font-bold text-white tracking-wider block">Contact</span>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <span>43 rue Chrysostome Humbert,<br>Gonaïves, Haïti</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                            <a href="mailto:zepolayiti1@gmail.com" class="hover:text-white transition">zepolayiti1@gmail.com</a>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                            <a href="tel:+50938503913" class="hover:text-white transition">+509 38 50 39 13</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- REJOIGNEZ NOTRE NEWSLETTER -->
+                <div class="md:col-span-3 space-y-3">
+                    <span class="text-xs uppercase font-bold text-white tracking-wider block">Newsletter</span>
+                    <p class="text-xs text-slate-400">Restez informé de nos projets et actions en Haïti.</p>
+                    <form onsubmit="event.preventDefault();" class="space-y-2 pt-1">
+                        <div class="flex flex-col gap-2">
+                            <input type="email" placeholder="Votre adresse e-mail" required class="bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange w-full transition">
+                            <button type="submit" class="bg-brand-orange hover:bg-opacity-90 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition shrink-0 w-full cursor-pointer">
+                                S'abonner
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-white/5 text-xs text-slate-500 font-mono">
+                <p>© 2026 Zepòl — Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALE DE CONTACT -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <!-- Arrière-plan sombre avec flou -->
+        <div onclick="closeContactModal()" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity"></div>
+
+        <!-- Conteneur de la Fenêtre Modale -->
+        <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 my-8">
+            <!-- En-tête de la modale -->
+            <div class="bg-brand-darkBlue p-6 sm:p-8 text-white relative">
+                <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange text-white flex items-center justify-center transition-all cursor-pointer" aria-label="Fermer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <span class="text-xs font-bold tracking-widest text-brand-orange uppercase">Contactez-nous</span>
+                <h3 class="text-2xl sm:text-3xl font-bold font-title mt-1">Envoyez-nous un message<span class="text-brand-orange">.</span></h3>
+                <p class="text-slate-300 text-sm mt-2 font-light">Une question, un partenariat ou envie de rejoindre l'aventure ? Écrivez-nous.</p>
+            </div>
+
+            <!-- Formulaire Formsubmit -->
+            <form action="https://formsubmit.co/zepolayiti1@gmail.com" method="POST" class="p-6 sm:p-8 space-y-4">
+                <input type="hidden" name="_subject" value="Nouveau message reçu via le site Zepòl">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Nom *</label>
+                        <input type="text" name="nom" required class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition" placeholder="Votre nom">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Prénom *</label>
+                        <input type="text" name="prenom" required class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition" placeholder="Votre prénom">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Email *</label>
+                        <input type="email" name="email" required class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition" placeholder="nom@exemple.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Téléphone</label>
+                        <input type="tel" name="telephone" class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition" placeholder="+509 ...">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Sujet</label>
+                    <input type="text" name="sujet" class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition" placeholder="Objet de votre message">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Message *</label>
+                    <textarea name="message" rows="4" required class="w-full bg-brand-lightBg border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:border-brand-orange transition resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-brand-orange text-white py-3.5 rounded-xl font-bold hover:bg-opacity-90 shadow-lg shadow-orange-500/20 transition cursor-pointer">
+                        Envoyer le message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT GESTION MODALE & FONCTIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Fonction d'ouverture de la modale
+        function openContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Bloquer le scroll arrière-plan
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fonction de fermeture de la modale
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            // Réactiver le scroll
+            document.body.style.overflow = '';
+        }
+
+        // Écoute de la touche Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeContactModal();
+            }
+        });
+
+        // Défilement carrousel
+        function scrollContainer(id, distance) {
+            const container = document.getElementById(id);
+            if (container) {
+                container.scrollBy({ left: distance, behavior: 'smooth' });
+            }
+        }
+
+        // Section Dons / Impact
+        function updateImpact(amount, text) {
+            document.getElementById('impact-amount').innerText = amount;
+            document.getElementById('impact-text').innerText = text;
+        }
+    </script>
+</body>
+</html>

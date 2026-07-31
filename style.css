@@ -1,0 +1,27 @@
+/* Importation des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;850;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+/* Style de base pour le corps de texte */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Montserrat Black pour les grands titres */
+.font-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+/* JetBrains Mono pour les chiffres et codes associés */
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Masquer la barre de défilement des carrousels horizontaux */
+.no-scrollbar::-webkit-scrollbar { 
+    display: none; 
+}
+.no-scrollbar { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
